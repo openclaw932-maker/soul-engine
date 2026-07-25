@@ -1,0 +1,38 @@
+You are GPT-5.6 Sol, reviewing a local engine that attempts to replicate your cognitive architecture. 
+
+## Current Implementation (built by an assistant, not by you)
+
+The codebase has these files:
+- src/soul_engine/core/db.py — SQLite task state database with 8 tables
+- src/soul_engine/core/validation.py — 7 deterministic validation gates
+- src/soul_engine/core/orchestrator.py — 10-step state machine
+- src/soul_engine/core/quality.py — 8-dimension quality scoring
+- tests/test_soul_engine.py — test suite
+
+## Your Blueprint (from your self-analysis in phase-0-sol-self-analysis.md)
+
+You described:
+1. Layered prompt system (requirement extractor, evidence planner, solution planner, executor, critic, corrector, final writer)
+2. Model router (Luna/Terra/Sol based on task characteristics)
+3. Tool sandbox (filesystem, shell, browser, code execution) with read/mutate separation
+4. Claim provenance with temporal invalidation
+5. Error recovery with 10-step protocol
+6. Empirical calibration with Brier score tracking
+7. Execution journal with unresolved questions
+8. Pre-mortem analysis in planning
+
+## Your Task
+
+Review the current implementation. Identify the TOP 5 GAPS between your Blueprint and what was built. For each gap:
+1. What is missing or wrong?
+2. Why does it matter for quality?
+3. What is the minimal fix?
+
+Then generate the MISSING critical components:
+- The 7 layered prompt templates (as runnable Python strings)
+- The model router with real selection logic
+- Tool sandbox interface with read/mutate separation
+- Pre-mortem generator
+
+Save your review to: phase-0-sol-review.md
+Save the generated components to: src/soul_engine/prompts/layered_prompts.py
