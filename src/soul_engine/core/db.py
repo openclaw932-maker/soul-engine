@@ -487,7 +487,18 @@ class SoulEngineDB:
                   entry.exit_status, entry.affected_files, entry.unresolved_questions,
                   entry.created_at))
             conn.commit()
-            entry.id = cursor.lastrowid
+            if cursor.lastrowid:
+                entry = ExecutionJournalEntry(
+                    id=cursor.lastrowid,
+                    task_id=entry.task_id,
+                    action=entry.action,
+                    command=entry.command,
+                    output=entry.output,
+                    exit_status=entry.exit_status,
+                    affected_files=entry.affected_files,
+                    unresolved_questions=entry.unresolved_questions,
+                    created_at=entry.created_at
+                )
         return entry
     
     # Error ledger
